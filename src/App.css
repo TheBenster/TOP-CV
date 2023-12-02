@@ -117,3 +117,30 @@ input {
   display: flex;
   flex-direction: column;
 }
+.header {
+  background-color: white;
+  color: black;
+  display: flex;
+  padding: 0 10% 0 10%;
+  flex-direction: column;
+}
+.topPart {
+  display: flex;
+  /* flex-grow: 1; */
+  height: 15%;
+  justify-content: space-between;
+}
+.header h2 {
+  font-size: 2em;
+}
+.header h3 {
+  font-size: 0.9em;
+}
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.bottomPart {
+  display: flex;
+  justify-content: space-between;
+}
