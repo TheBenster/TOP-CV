@@ -3,10 +3,22 @@ import EduForm from "./EduForm";
 import SkillForm from "./SkillForm";
 import WorkForm from "./WorkForm";
 
-function MainForm() {
+function MainForm({
+  updateName,
+  updateNiche,
+  updateEmail,
+  updatePhone,
+  updateAddress,
+}) {
   return (
     <div className="main-form">
-      <HeaderForm />
+      <HeaderForm
+        updateName={updateName}
+        updateNiche={updateNiche}
+        updateEmail={updateEmail}
+        updatePhone={updatePhone}
+        updateAddress={updateAddress}
+      />
       <EduForm />
       <SkillForm />
       <WorkForm />
