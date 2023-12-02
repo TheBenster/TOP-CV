@@ -40,3 +40,80 @@
 .read-the-docs {
   color: #888;
 }
+
+label {
+  display: flex;
+  align-items: left;
+}
+#HeaderForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 35vw;
+}
+input {
+  display: flex;
+  align-items: left;
+  height: 2em;
+  font-size: 1em;
+  border-radius: 1em;
+  border: none;
+  padding-left: 10px;
+}
+.formItem.addy {
+  display: flex;
+  flex-direction: column;
+}
+.formItem.submit {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#headSub {
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 2em;
+  border-radius: 2em;
+}
+
+.header-form,
+.edu-form,
+.skill-form {
+  border: solid 1px black;
+}
+
+#eduForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 35vw;
+}
+
+.skill-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#workForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#workForm textarea {
+  border: none;
+  border-radius: 1.2em;
+  padding: 10px;
+}
+.formItem.work {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+}

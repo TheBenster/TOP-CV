@@ -1,9 +1,8 @@
-import { useState } from "react";
-import "./App.css";
-
+// import { useState } from "react";
+import "../App.css";
 function HeaderForm() {
   return (
-    <div>
+    <div className="header-form">
       <form id="HeaderForm">
         <div className="formItem">
           <label htmlFor="name">Full Name</label>
@@ -21,9 +20,14 @@ function HeaderForm() {
           <label htmlFor="phone">Phone</label>
           <input type="tel" id="phone" name="phone" required />
         </div>
-        <div className="formItem">
+        <div className="formItem addy">
           <label htmlFor="address">Address</label>
           <input type="text" id="address" name="address" required />
+        </div>
+        <div className="formItem submit">
+          <button id="headSub" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
