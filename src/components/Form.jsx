@@ -9,6 +9,12 @@ function MainForm({
   updateEmail,
   updatePhone,
   updateAddress,
+  updateSchool,
+  updateDegree,
+  updateGradyear,
+  updateEduLocation,
+  handleSkillClick,
+  skill,
 }) {
   return (
     <div className="main-form">
@@ -19,8 +25,13 @@ function MainForm({
         updatePhone={updatePhone}
         updateAddress={updateAddress}
       />
-      <EduForm />
-      <SkillForm />
+      <EduForm
+        updateSchool={updateSchool}
+        updateDegree={updateDegree}
+        updateGradyear={updateGradyear}
+        updateEduLocation={updateEduLocation}
+      />
+      <SkillForm skill={skill} handleSkillClick={handleSkillClick} />
       <WorkForm />
     </div>
   );
