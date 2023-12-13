@@ -101,6 +101,7 @@ input {
 #workForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-right: 2em;
 }
 
 #workForm textarea {
@@ -126,9 +127,9 @@ input {
 }
 .topPart {
   display: flex;
-  /* flex-grow: 1; */
-  height: 15%;
+  height: 5em;
   justify-content: space-between;
+  padding-bottom: 0;
 }
 .header h2 {
   font-size: 2em;
@@ -143,4 +144,92 @@ input {
 .bottomPart {
   display: flex;
   justify-content: space-between;
+}
+#divider {
+  border: 0.5px solid rgb(77, 77, 77);
+  margin: 0 10% 0 10%;
+}
+
+.CV {
+  background-color: white;
+  color: black;
+}
+
+.edu {
+  padding: 0 10% 0 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.cvTitle {
+  text-align: start;
+  padding-left: 10%;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.edu h4 {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+#eduLeft {
+  text-align: start;
+}
+
+#eduRight {
+  text-align: end;
+}
+
+#italic {
+  font-style: italic;
+  font-weight: 400;
+}
+.skill {
+  padding: 0 10% 0 10%;
+  text-align: start;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+.formItem.work-submit {
+  grid-row: 3/4;
+}
+
+.work {
+  padding: 0 10% 0 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+}
+.work h4 {
+  font-size: 0.8em;
+  margin: 0;
+  font-weight: 400;
+}
+#workLeft {
+  text-align: start;
+  margin: 0;
+  padding: 0;
+}
+
+#workRight {
+  text-align: end;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#workForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-right: 2em;
+}
+
+#responsibilities {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
 }
