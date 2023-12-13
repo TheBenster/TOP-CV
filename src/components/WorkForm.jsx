@@ -27,6 +27,9 @@ function WorkForm() {
             required
           ></textarea>
         </div>
+        <div className="formItem work-submit">
+          <button type="submit">Add Work</button>
+        </div>
       </form>
     </div>
   );

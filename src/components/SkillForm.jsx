@@ -1,25 +1,28 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "../App.css";
 
-function SkillForm() {
-  //   const [skill, setSkill] = useState("");
+function SkillForm({ handleSkillClick }) {
+  const [skill, setSkill] = useState("");
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     // setSkill("");
-  //   };
+  const handleChange = (e) => {
+    setSkill(e.target.value);
+  };
 
   return (
     <div className="skill-form">
       <div className="formItem">
         <label htmlFor="skill">Skill</label>
-        <input type="text" id="skill" name="skill" required />
+        <input
+          value={skill}
+          onChange={handleChange}
+          type="text"
+          id="skill"
+          name="skill"
+          required
+        />
       </div>
       <div className="formItem submit">
-        <button>Add Skill</button>
-      </div>
-      <div className="formItem submit">
-        <button type="submit">Submit</button>
+        <button onClick={(e) => handleSkillClick(e, skill)}>Add Skill</button>
       </div>
     </div>
   );
