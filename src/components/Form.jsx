@@ -2,6 +2,7 @@ import HeaderForm from "./HeaderForm";
 import EduForm from "./EduForm";
 import SkillForm from "./SkillForm";
 import WorkForm from "./WorkForm";
+import propTypes from "prop-types";
 
 function MainForm({
   updateName,
@@ -15,6 +16,8 @@ function MainForm({
   updateEduLocation,
   handleSkillClick,
   skill,
+  work,
+  handleWorkButton,
 }) {
   return (
     <div className="main-form">
@@ -32,9 +35,24 @@ function MainForm({
         updateEduLocation={updateEduLocation}
       />
       <SkillForm skill={skill} handleSkillClick={handleSkillClick} />
-      <WorkForm />
+      <WorkForm work={work} handleWorkButton={handleWorkButton} />
     </div>
   );
 }
 
+MainForm.propTypes = {
+  updateName: propTypes.func,
+  updateNiche: propTypes.func,
+  updateEmail: propTypes.func,
+  updatePhone: propTypes.func,
+  updateAddress: propTypes.func,
+  updateSchool: propTypes.func,
+  updateDegree: propTypes.func,
+  updateGradyear: propTypes.func,
+  updateEduLocation: propTypes.func,
+  handleSkillClick: propTypes.func,
+  skill: propTypes.array,
+  addWork: propTypes.func,
+  work: propTypes.object,
+};
 export default MainForm;

@@ -1,6 +1,7 @@
 // import { useState } from "react";
 // import "../../src/App.css";
 import "../App.css";
+import propTypes from 'prop-types'
 
 function EduForm({
   updateSchool,
@@ -54,6 +55,13 @@ function EduForm({
       </form>
     </div>
   );
+}
+
+EduForm.propTypes = {
+  updateSchool: propTypes.func,
+  updateDegree: propTypes.func,
+  updateGradyear: propTypes.func,
+  updateEduLocation: propTypes.func
 }
 
 export default EduForm;

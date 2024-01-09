@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../App.css";
+import PropTypes from "prop-types";
 
 function SkillForm({ handleSkillClick }) {
   const [skill, setSkill] = useState("");
@@ -27,5 +28,10 @@ function SkillForm({ handleSkillClick }) {
     </div>
   );
 }
+
+SkillForm.propTypes = {
+  handleSkillClick: PropTypes.func.isRequired,
+}
+
 
 export default SkillForm;
