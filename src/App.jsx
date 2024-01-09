@@ -9,49 +9,75 @@ import Work from "./components/Work";
 // import { name, updateName } from "./components/Header";
 
 function App() {
-  // Header States
+  // ----------------------- Header States -----------------------
   const [name, setName] = useState("John Doe");
   const [niche, setNiche] = useState("Web Developer");
   const [email, setEmail] = useState("JoeRogan@gmail.com");
   const [phone, setPhone] = useState("123-456-7890");
   const [address, setAddress] = useState("123 Main Street");
 
-  // Education States
+  // ----------------------- Education States -----------------------
   const [school, setSchool] = useState("Squidward Community College");
   const [degree, setDegree] = useState("Bachelor of Science");
   const [gradyear, setGradyear] = useState("2022");
   const [eduLocation, setEduLocation] = useState("Seattle, WA");
 
-  // Skill States
+  // ----------------------- Skill States -----------------------
   let [skills, setSkills] = useState(["HTML", "CSS", "JavaScript"]);
-
-  // Work States
-  const [work, setWork] = useState({
-    company: "Freelance",
-    position: "Web Developer",
-    location: "Seattle, WA",
-    dateFrom: "2021",
-    dateTo: "Present",
-    responsibilities: [
-      "Developed and maintained websites for clients.",
-      "Collaborated with cross-functional teams to deliver high-quality web solutions.",
-    ],
-  });
-
-  const addWork = (e) => {
-    e.preventDefault();
-    setWork([
-      ...work,
-      {
-        company: "",
-        position: "",
-        dateFrom: "",
-        dateTo: "",
-        responsibilities: "",
-      },
-    ]);
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-");
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const monthName = monthNames[parseInt(month, 10) - 1];
+    return `${monthName}, ${year}`;
   };
 
+  // ----------------------- WorkStates -----------------------
+
+  const [jobExperience, setJobExperience] = useState([
+    {
+      company: "Freelance",
+      position: "Web Developer",
+      location: "Seattle, WA",
+      dateFrom: "January, 2022", // Assuming formatDate is not used or moved elsewhere
+      dateTo: "Present",
+      responsibilities: [
+        "Developed and maintained websites for clients.",
+        "Collaborated with cross-functional teams to deliver high-quality web solutions.",
+      ],
+    },
+  ]);
+
+  // ----------------------- Work Handlers -----------------------
+  const handleWorkButton = (e, newJobExperience) => {
+    e.preventDefault();
+    console.log(typeof newJobExperience.responsibilities);
+    const isSampleData = jobExperience[0].location === "Seattle, WA";
+    if (typeof newJobExperience.responsibilities === "string") {
+      newJobExperience.responsibilities =
+        newJobExperience.responsibilities.split(",");
+    }
+    if (isSampleData) {
+      setJobExperience([newJobExperience]);
+    } else {
+      setJobExperience([...jobExperience, newJobExperience]);
+    }
+    // setJobExperience([...jobExperience, newJobExperience]);
+  };
+
+  // ----------------------- Skill Handlers -----------------------
   const handleSkillClick = (e, skill) => {
     e.preventDefault();
 
@@ -104,6 +130,7 @@ function App() {
         updateEduLocation={updateEduLocation}
         skills={skills}
         handleSkillClick={handleSkillClick}
+        handleWorkButton={handleWorkButton}
       />
       <div className="CV">
         <Header
@@ -123,7 +150,7 @@ function App() {
         <hr id="divider" />
         <Skill skills={skills} handleSkillClick={handleSkillClick} />
         <hr id="divider" />
-        <Work work={work} addWork={addWork} />
+        <Work jobExperience={jobExperience} formatDate={formatDate} />
       </div>
     </div>
   );
