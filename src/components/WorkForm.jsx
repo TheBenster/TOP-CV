@@ -1,7 +1,8 @@
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-function WorkForm({ handleWorkButton }) {
+function WorkForm({ handleWorkButton, handleWorkDel }) {
   const [work, setWork] = useState({
     company: "",
     dateFrom: "",
@@ -10,13 +11,6 @@ function WorkForm({ handleWorkButton }) {
     location: "",
     responsibilities: "",
   });
-
-  const handleJobDelete = (index) => {
-    setWork({
-      ...work,
-      responsibilities: work.responsibilities.filter((_, i) => i !== index),
-    });
-  };
 
   const handleWorkChange = (e) => {
     setWork({
@@ -27,9 +21,8 @@ function WorkForm({ handleWorkButton }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleWorkButton(e, work); // Pass the entire work object
+    handleWorkButton(e, work);
     setWork({
-      // Reset form fields
       company: "",
       dateFrom: "",
       dateTo: "",
@@ -84,11 +77,7 @@ function WorkForm({ handleWorkButton }) {
           />
           <div className="formItem work-submit">
             <button type="submit">Add Work</button>
-            <button
-              onClick={() => handleJobDelete(work.responsibilities.length - 1)}
-            >
-              Delete Last Job
-            </button>
+            <button onClick={handleWorkDel}>Delete Last Job</button>
           </div>
         </div>
         <div className="formItem work">
@@ -107,5 +96,10 @@ function WorkForm({ handleWorkButton }) {
     </div>
   );
 }
+
+WorkForm.propTypes = {
+  handleWorkButton: PropTypes.func.isRequired,
+  handleWorkDel: PropTypes.func.isRequired,
+};
 
 export default WorkForm;

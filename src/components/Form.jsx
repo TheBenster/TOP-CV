@@ -18,6 +18,8 @@ function MainForm({
   skill,
   work,
   handleWorkButton,
+  handleSkillDel,
+  handleWorkDel,
 }) {
   return (
     <div className="main-form">
@@ -34,8 +36,16 @@ function MainForm({
         updateGradyear={updateGradyear}
         updateEduLocation={updateEduLocation}
       />
-      <SkillForm skill={skill} handleSkillClick={handleSkillClick} />
-      <WorkForm work={work} handleWorkButton={handleWorkButton} />
+      <SkillForm
+        handleSkillDel={handleSkillDel}
+        skill={skill}
+        handleSkillClick={handleSkillClick}
+      />
+      <WorkForm
+        work={work}
+        handleWorkDel={handleWorkDel}
+        handleWorkButton={handleWorkButton}
+      />
     </div>
   );
 }
@@ -51,8 +61,11 @@ MainForm.propTypes = {
   updateGradyear: propTypes.func,
   updateEduLocation: propTypes.func,
   handleSkillClick: propTypes.func,
+  handleWorkButton: propTypes.func,
+  handleSkillDel: propTypes.func,
   skill: propTypes.array,
   addWork: propTypes.func,
   work: propTypes.object,
+  handleWorkDel: propTypes.func,
 };
 export default MainForm;
