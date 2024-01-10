@@ -80,12 +80,6 @@ input {
   border-radius: 2em;
 }
 
-.header-form,
-.edu-form,
-.skill-form {
-  border: solid 1px black;
-}
-
 #eduForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -117,6 +111,7 @@ input {
 .main-form {
   display: flex;
   flex-direction: column;
+  gap: 2em;
 }
 .header {
   background-color: white;
@@ -195,7 +190,13 @@ input {
 }
 
 .formItem.work-submit {
-  grid-row: 3/4;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+}
+.formItem.deleteSkill {
+  display: flex;
+  align-items: end;
 }
 
 .work {
@@ -203,6 +204,7 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 2fr;
+  height: 250px;
 }
 .work h4 {
   font-size: 0.8em;
@@ -225,6 +227,7 @@ input {
 #workForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   padding-right: 2em;
 }
 
@@ -232,4 +235,33 @@ input {
   display: flex;
   flex-direction: column;
   text-align: start;
+}
+
+input[type="date"] {
+  padding: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .header,
+  .edu,
+  .cvTitle,
+  .skill,
+  .work {
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #HeaderForm {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header,
+  .edu,
+  .cvTitle,
+  .skill,
+  .work {
+    font-size: 0.5em;
+  }
 }
