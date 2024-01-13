@@ -33,7 +33,7 @@ function WorkForm({ handleWorkButton, handleWorkDel }) {
   };
   return (
     <div className="work-form">
-      <form onSubmit={handleSubmit} action="" id="workForm">
+      <form onSubmit={(e) => handleSubmit(e)} action="" id="workForm">
         <div className="formItem">
           <label htmlFor="company">Company</label>
           <input
@@ -44,6 +44,14 @@ function WorkForm({ handleWorkButton, handleWorkDel }) {
             value={work.company}
             name="company"
             required
+          />
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            value={work.location}
+            onChange={handleWorkChange}
           />
         </div>
         <div className="formItem">
@@ -76,7 +84,7 @@ function WorkForm({ handleWorkButton, handleWorkDel }) {
             required
           />
           <div className="formItem work-submit">
-            <button type="submit">Add Work</button>
+            <button type="submit">Add Job</button>
             <button onClick={handleWorkDel}>Delete Last Job</button>
           </div>
         </div>
