@@ -2,10 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import MainForm from "./components/Form";
-import Header from "./components/Header";
-import Edu from "./components/Edu";
-import Skill from "./components/Skill";
-import Work from "./components/Work";
+import MainCV from "./components/MainCV";
 // import { name, updateName } from "./components/Header";
 
 function App() {
@@ -26,6 +23,12 @@ function App() {
   let [skills, setSkills] = useState(["HTML", "CSS", "JavaScript"]);
   const formatDate = (dateString) => {
     const [year, month, day] = dateString.split("-");
+    if (dateString === "Present") {
+      return dateString;
+    }
+    if (dateString === "January, 2022") {
+      return dateString;
+    }
     const monthNames = [
       "January",
       "February",
@@ -63,18 +66,26 @@ function App() {
   // ----------------------- Work Handlers -----------------------
   const handleWorkButton = (e, newJobExperience) => {
     e.preventDefault();
-    console.log(typeof newJobExperience.responsibilities);
-    const isSampleData = jobExperience[0].location === "Seattle, WA";
+
     if (typeof newJobExperience.responsibilities === "string") {
       newJobExperience.responsibilities =
         newJobExperience.responsibilities.split(",");
     }
-    if (isSampleData) {
+
+    if (
+      jobExperience.length > 0 &&
+      jobExperience[0].location === "Seattle, WA"
+    ) {
       setJobExperience([newJobExperience]);
     } else {
       setJobExperience([...jobExperience, newJobExperience]);
     }
-    // setJobExperience([...jobExperience, newJobExperience]);
+  };
+  const handleWorkDel = (e) => {
+    console.log(jobExperience.location);
+    e.preventDefault();
+    setJobExperience("");
+    console.log(jobExperience.length);
   };
 
   // ----------------------- Skill Handlers -----------------------
@@ -86,6 +97,11 @@ function App() {
       alert("You have reached the max number of skills");
       e.target.style.display = "none";
     }
+  };
+
+  const handleSkillDel = (e) => {
+    e.preventDefault();
+    setSkills(skills.slice(0, -1));
   };
 
   const updateName = (e) => {
@@ -131,27 +147,29 @@ function App() {
         skills={skills}
         handleSkillClick={handleSkillClick}
         handleWorkButton={handleWorkButton}
+        handleSkillDel={handleSkillDel}
+        handleWorkDel={handleWorkDel}
       />
-      <div className="CV">
-        <Header
-          name={name}
-          niche={niche}
-          email={email}
-          phone={phone}
-          address={address}
+      <>
+        <MainCV
+          {...{
+            name,
+            niche,
+            email,
+            phone,
+            address,
+            school,
+            degree,
+            gradyear,
+            eduLocation,
+            skills,
+            jobExperience,
+            handleSkillClick,
+            handleSkillDel,
+            formatDate,
+          }}
         />
-        <hr id="divider" />
-        <Edu
-          school={school}
-          degree={degree}
-          gradyear={gradyear}
-          eduLocation={eduLocation}
-        />
-        <hr id="divider" />
-        <Skill skills={skills} handleSkillClick={handleSkillClick} />
-        <hr id="divider" />
-        <Work jobExperience={jobExperience} formatDate={formatDate} />
-      </div>
+      </>
     </div>
   );
 }
